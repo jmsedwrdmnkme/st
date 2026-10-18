@@ -76,3 +76,4 @@ jobs:
               --title "Sync with upstream $(basename "$UPSTREAM_URL")" \
               --body "$BODY"
           fi
+
