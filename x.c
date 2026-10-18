@@ -59,6 +59,8 @@ static void zoom(const Arg *);
 static void zoomabs(const Arg *);
 static void zoomreset(const Arg *);
 static void ttysend(const Arg *);
+void kscrollup(const Arg *);
+void kscrolldown(const Arg *);
 
 /* config.h for applying patches and the configuration. */
 #include "config.h"
@@ -1755,10 +1757,7 @@ xsetcursor(int cursor)
 void
 xseturgency(int add)
 {
-	XWMHints *h;
-
-	if (!(h = XGetWMHints(xw.dpy, xw.win)))
-		return;
+	XWMHints *h = XGetWMHints(xw.dpy, xw.win);
 
 	MODBIT(h->flags, add, XUrgencyHint);
 	XSetWMHints(xw.dpy, xw.win, h);
